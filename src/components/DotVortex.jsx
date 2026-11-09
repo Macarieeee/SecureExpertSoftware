@@ -3,7 +3,7 @@ import { useEffect, useRef } from 'react'
 /**
  * Spirala de puncte din broșura SXS, reconstruită ca animație:
  * punctele curg din gura pâlniei spre centru, ca datele care intră
- * într-un singur sistem. Respectă prefers-reduced-motion și se oprește
+ * într-un singur sistem. Pornește automat și se oprește
  * când nu e vizibilă.
  */
 export default function DotVortex({ className = '' }) {
@@ -12,7 +12,7 @@ export default function DotVortex({ className = '' }) {
   useEffect(() => {
     const canvas = ref.current
     const ctx = canvas.getContext('2d')
-    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (!ctx) return
 
     // Puncte: inel (t), unghi de pornire, culoare
     const RINGS = 46
@@ -56,6 +56,8 @@ export default function DotVortex({ className = '' }) {
     const sY = Math.sin(yaw)
 
     const draw = (now) => {
+      raf = 0
+      if (!running) return
       const time = (now - start) / 1000
       ctx.clearRect(0, 0, w, h)
       const scale = Math.min(w, h * 1.2) / 720
@@ -98,23 +100,26 @@ export default function DotVortex({ className = '' }) {
         ctx.fill()
       }
 
-      if (running && visible && !reduced) raf = requestAnimationFrame(draw)
+      if (running && visible) raf = requestAnimationFrame(draw)
     }
 
     resize()
     draw(performance.now())
-    if (!reduced) raf = requestAnimationFrame(draw)
 
     const ro = new ResizeObserver(() => {
       resize()
-      if (reduced || !visible) draw(performance.now())
+      if (!raf) draw(performance.now())
     })
     ro.observe(canvas)
 
     const io = new IntersectionObserver(([e]) => {
-      const was = visible
       visible = e.isIntersecting
-      if (visible && !was && !reduced) raf = requestAnimationFrame(draw)
+      if (!visible) {
+        cancelAnimationFrame(raf)
+        raf = 0
+      } else if (!raf) {
+        raf = requestAnimationFrame(draw)
+      }
     })
     io.observe(canvas)
 

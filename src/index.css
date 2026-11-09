@@ -106,9 +106,6 @@
 .marquee-track {
   animation: marquee 60s linear infinite;
 }
-.marquee:hover .marquee-track {
-  animation-play-state: paused;
-}
 
 /* Pulsurile de date din diagrama de integrare */
 @keyframes dash {
@@ -124,9 +121,5 @@
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
-  }
-  .marquee-track,
-  .flow-line {
-    animation: none;
   }
 }
