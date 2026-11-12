@@ -24,7 +24,7 @@ export default function DotVortex({ className = '' }) {
         const r = Math.random()
         dots.push({
           t0,
-          a0: (j / count) * Math.PI * 2 + i * 0.37,
+          angle: (j / count) * Math.PI * 2 + i * 0.37,
           kind: r < 0.09 ? 'red' : r < 0.12 ? 'dark' : 'grey',
           jitter: Math.random() * 0.6,
         })
@@ -36,7 +36,8 @@ export default function DotVortex({ className = '' }) {
     let raf = 0
     let running = true
     let visible = true
-    const start = performance.now()
+    let time = 0
+    let lastFrame = null
 
     const resize = () => {
       const dpr = Math.min(window.devicePixelRatio || 1, 2)
@@ -57,8 +58,14 @@ export default function DotVortex({ className = '' }) {
 
     const draw = (now) => {
       raf = 0
-      if (!running) return
-      const time = (now - start) / 1000
+      if (!running || !visible || document.hidden) {
+        lastFrame = null
+        return
+      }
+      // Advance only by rendered time; discard long stalls instead of catching up.
+      const delta = lastFrame === null ? 0 : Math.min(Math.max(now - lastFrame, 0), 50) / 1000
+      lastFrame = now
+      time += delta
       ctx.clearRect(0, 0, w, h)
       const scale = Math.min(w, h * 1.2) / 720
       const cx = w * 0.56
@@ -70,7 +77,9 @@ export default function DotVortex({ className = '' }) {
         if (t < 0) t += 1
         const radius = (22 + 300 * Math.pow(t, 1.7)) * scale
         const z = (-260 + 470 * t) * scale
-        const ang = d.a0 + time * (0.32 - 0.22 * t)
+        // Integrate velocity so rotation never accelerates with total uptime.
+        d.angle = (d.angle + delta * (0.32 - 0.22 * t)) % (Math.PI * 2)
+        const ang = d.angle
 
         let x = Math.cos(ang) * radius
         let y = Math.sin(ang) * radius
@@ -112,20 +121,27 @@ export default function DotVortex({ className = '' }) {
     })
     ro.observe(canvas)
 
-    const io = new IntersectionObserver(([e]) => {
-      visible = e.isIntersecting
-      if (!visible) {
+    const syncPlayback = () => {
+      if (!visible || document.hidden) {
         cancelAnimationFrame(raf)
         raf = 0
+        lastFrame = null
       } else if (!raf) {
+        lastFrame = null
         raf = requestAnimationFrame(draw)
       }
+    }
+    const io = new IntersectionObserver(([e]) => {
+      visible = e.isIntersecting
+      syncPlayback()
     })
     io.observe(canvas)
+    document.addEventListener('visibilitychange', syncPlayback)
 
     return () => {
       running = false
       cancelAnimationFrame(raf)
+      document.removeEventListener('visibilitychange', syncPlayback)
       ro.disconnect()
       io.disconnect()
     }
