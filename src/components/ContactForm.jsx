@@ -30,9 +30,12 @@ const MODULES = [
 
 const TIMING = ['Cât mai curând', 'În 1–3 luni', 'În 3–6 luni', 'Deocamdată mă informez']
 
-export default function ContactForm() {
+const SECURITY_TYPES = ['Spital judetean de urgenta', 'Spital judetean', 'Spital municipal', 'Spital clinic', 'Institut national', 'Ambulatoriu de specialitate', 'Alta institutie medicala']
+const COUNTIES = ['Alba', 'Arad', 'Arges', 'Bacau', 'Bihor', 'Bistrita-Nasaud', 'Botosani', 'Braila', 'Brasov', 'Bucuresti', 'Buzau', 'Calarasi', 'Caras-Severin', 'Cluj', 'Constanta', 'Covasna', 'Dambovita', 'Dolj', 'Galati', 'Giurgiu', 'Gorj', 'Harghita', 'Hunedoara', 'Ialomita', 'Iasi', 'Ilfov', 'Maramures', 'Mehedinti', 'Mures', 'Neamt', 'Olt', 'Prahova', 'Salaj', 'Satu Mare', 'Sibiu', 'Suceava', 'Teleorman', 'Timis', 'Tulcea', 'Valcea', 'Vaslui', 'Vrancea']
+
+export default function ContactForm({ security = false }) {
   const [params] = useSearchParams()
-  const pre = params.get('modul')
+  const pre = security ? 'prosecure' : params.get('modul')
   const [status, setStatus] = useState('idle') // idle | sending | sent | error
   const [error, setError] = useState('')
   const [modules, setModules] = useState(pre ? [pre] : [])
@@ -43,7 +46,8 @@ export default function ContactForm() {
     e.preventDefault()
     const form = e.currentTarget
     const data = Object.fromEntries(new FormData(form).entries())
-    data.modules = MODULES.filter(([id]) => modules.includes(id)).map(([, label]) => label)
+    data.modules = MODULES.filter(([id]) => security ? id === 'prosecure' : modules.includes(id)).map(([, label]) => label)
+    if (security) data.problems = `Judet: ${data.county || '-'}\n${data.problems || ''}`
 
     setStatus('sending')
     setError('')
@@ -71,7 +75,7 @@ export default function ContactForm() {
       <div className="rounded-lg border border-white/12 bg-graphite-2 p-8" role="status">
         <h3 className="text-[24px] font-semibold text-white">Solicitarea a fost trimisă.</h3>
         <p className="mt-3 text-white/75">
-          Un coleg vă sună, de regulă în aceeași zi lucrătoare, ca să stabilim prezentarea. Dacă e urgent, ne găsiți
+          {security ? 'Un coleg vă va contacta pentru analiza de conformitate.' : 'Un coleg vă sună, de regulă în aceeași zi lucrătoare, ca să stabilim prezentarea.'} Dacă e urgent, ne găsiți
           direct la{' '}
           <a href={COMPANY.phoneHref} className="font-semibold text-white underline decoration-crimson-light underline-offset-4">
             {COMPANY.phone}
@@ -103,9 +107,18 @@ export default function ContactForm() {
           <label htmlFor="institutionType" className={label}>Tipul instituției</label>
           <select id="institutionType" name="institutionType" required className="field" defaultValue="">
             <option value="" disabled>Alegeți</option>
-            {INSTITUTION_TYPES.map((t) => <option key={t}>{t}</option>)}
+            {(security ? SECURITY_TYPES : INSTITUTION_TYPES).map((t) => <option key={t}>{t}</option>)}
           </select>
         </div>
+        {security ? (
+          <div>
+            <label htmlFor="county" className={label}>Judetul</label>
+            <select id="county" name="county" className="field" defaultValue="">
+              <option value="" disabled>Alegeti</option>
+              {COUNTIES.map((county) => <option key={county}>{county}</option>)}
+            </select>
+          </div>
+        ) : (
         <div>
           <label htmlFor="role" className={label}>Departamentul dvs.</label>
           <select id="role" name="role" required className="field" defaultValue="">
@@ -113,8 +126,9 @@ export default function ContactForm() {
             {ROLES.map((t) => <option key={t}>{t}</option>)}
           </select>
         </div>
+        )}
         <div className="sm:col-span-2">
-          <label htmlFor="name" className={label}>Numele dvs.</label>
+          <label htmlFor="name" className={label}>{security ? 'Numele si functia dvs.' : 'Numele dvs.'}</label>
           <input id="name" name="name" required autoComplete="name" className="field" />
         </div>
         <div>
@@ -127,7 +141,7 @@ export default function ContactForm() {
         </div>
       </div>
 
-      <fieldset>
+      {!security && <fieldset>
         <legend className={label}>Ce vă interesează</legend>
         <div className="mt-1 flex flex-wrap gap-2">
           {MODULES.map(([id, text]) => {
@@ -145,31 +159,31 @@ export default function ContactForm() {
             )
           })}
         </div>
-      </fieldset>
+      </fieldset>}
 
       <div>
-        <label htmlFor="problems" className={label}>Ce probleme aveți acum și ce ar trebui să rezolve soluția?</label>
+        <label htmlFor="problems" className={label}>{security ? 'Observatii (optional)' : 'Ce probleme aveți acum și ce ar trebui să rezolve soluția?'}</label>
         <textarea
           id="problems"
           name="problems"
           rows={4}
           className="field resize-y"
-          placeholder="ex. Ministerul ne cere o raportare pe care programul actual nu o scoate; nu avem suport când apare o problemă…"
+          placeholder={security ? undefined : 'ex. Ministerul ne cere o raportare pe care programul actual nu o scoate; nu avem suport când apare o problemă…'}
         />
       </div>
 
-      <div>
+      {!security && <div>
         <label htmlFor="timing" className={label}>Când ați vrea să fie implementată?</label>
         <select id="timing" name="timing" className="field" defaultValue="">
           <option value="" disabled>Alegeți</option>
           {TIMING.map((t) => <option key={t}>{t}</option>)}
         </select>
-      </div>
+      </div>}
 
       <label className="flex gap-3 text-[14px] text-white/70">
         <input type="checkbox" name="consent" value="da" required className="mt-1 h-4 w-4 shrink-0 accent-crimson" />
         <span>
-          Sunt de acord ca SXS să folosească aceste date pentru a mă contacta în legătură cu solicitarea mea. Detalii în{' '}
+          {security ? 'Sunt de acord ca SXS sa utilizeze aceste date pentru a ma contacta. Detalii in' : 'Sunt de acord ca SXS să folosească aceste date pentru a mă contacta în legătură cu solicitarea mea. Detalii în'}{' '}
           <Link to="/confidentialitate" className="text-white underline underline-offset-4">
             politica de confidențialitate
           </Link>

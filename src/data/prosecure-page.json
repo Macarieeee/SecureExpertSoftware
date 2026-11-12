@@ -1,0 +1,180 @@
+{
+  "name": "PROSECURE",
+  "area": "Securitate cibernetica pentru institutii medicale",
+  "hero": [
+    "NIS2: Sunteti pregatiti?",
+    "Pregatim institutia dvs. pentru NIS2 si ISO 27001, alaturi de specialisti in securitate cibernetica. De la evaluare si documentatie la testare, audit intern si mentenanta continua.",
+    "[CTA] Solicitati o analiza de conformitate"
+  ],
+  "context": [
+    "Un singur atac, 26 de spitale afectate",
+    "In primul trimestru al anului 2024, un atac cibernetic a compromis simultan 26 de spitale din Romania. Incidentul este citat in preambulul OUG 155/2024, actul prin care directiva NIS2 devine lege in Romania, aprobat prin Legea 124/2025.",
+    "Atacul a demonstrat ceea ce multi ignorau: spitalele nu au infrastructura de securitate necesara pentru a face fata amenintarilor actuale. Sistemele medicale, bazele de date cu pacienti, echipamentele conectate la retea - toate sunt expuse fara masuri adecvate de protectie."
+  ],
+  "obligations": [
+    "Ce va cere legea - concret",
+    "OUG 155/2024 nu lasa loc de ambiguitate. Institutiile medicale au urmatoarele obligatii:",
+    "Inregistrare la DNSC",
+    "Notificarea si inregistrarea la Directoratul National de Securitate Cibernetica. Mentinerea informatiilor actualizate.",
+    "Masuri de gestionare a riscurilor",
+    "Implementarea de masuri tehnice si organizatorice: politici de securitate, control acces, protectia datelor, gestionarea incidentelor, continuitatea activitatii, gestionarea vulnerabilitatilor.",
+    "Raportarea incidentelor",
+    "Notificare DNSC in 24 de ore de la detectie. Raport intermediar la 72 de ore. Raport final la 30 de zile.",
+    "Audituri periodice de securitate",
+    "Audituri de securitate cibernetica la intervale stabilite de DNSC.",
+    "Responsabilitatea conducerii",
+    "Conducerea institutiei aproba masurile, supravegheaza implementarea si participa la programe de formare. Raspunderea este personala."
+  ],
+  "comparison": [
+    "NIS2 nu este ISO 27001",
+    "Aceasta confuzie este frecventa si poate avea consecinte juridice.",
+    "NIS2 (OUG 155/2024) este o obligatie legala. Se aplica tuturor institutiilor medicale care indeplinesc criteriile de dimensiune si activitate. Prevede masuri obligatorii, termene, raportari catre DNSC si sanctiuni in caz de neconformare.",
+    "ISO 27001 este un standard international de certificare voluntara. Ofera un cadru structurat de management al securitatii informatiei. Certificarea este emisa de organisme acreditate (CERTIND, TUV, Bureau Veritas) si necesita audituri de supraveghere anuale.",
+    "O institutie certificata ISO 27001 nu este automat conforma NIS2. ISO acopera o parte din cerinte, dar NIS2 impune obligatii suplimentare: inregistrarea la DNSC, raportarea incidentelor in termene fixe, auditul reglementat de securitate cibernetica si raspunderea directa a conducerii.",
+    "Recomandam abordarea integrata: un program de conformitate care acopera simultan cerintele NIS2 si pregateste institutia pentru certificarea ISO 27001. Un singur efort, doua rezultate."
+  ],
+  "partnership": [
+    "SXS, impreuna cu o echipa dedicata de securitate cibernetica",
+    "SXS cunoaste spitalele din Romania de 15 ani. Stim ce aplicatii folositi, cum arata reteaua, ce probleme apar recurent si cu ce constrangeri lucrati.",
+    "Securitatea cibernetica insa nu se improvizeaza. De aceea, serviciile PROSECURE sunt prestate in parteneriat cu o echipa de specialisti cu certificari si experienta in conformitate NIS2, analiza de riscuri, audit ISO 27001 si securitate tehnica pentru infrastructuri critice.",
+    "Ce inseamna asta concret:",
+    "SXS este interlocutorul unic - relatia contractuala, coordonarea, suportul",
+    "Echipa de securitate executa evaluarea, elaboreaza documentatia, efectueaza testele de securitate, realizeaza auditul intern si coordoneaza remedierea",
+    "Implementarea solutiilor tehnice (echipamente, software, configurari) este realizata de echipa IT a institutiei sau de furnizorul de servicii IT existent, pe baza recomandarilor si specificatiilor elaborate de echipa de securitate",
+    "Un singur contract prin SEAP, fara coordonare separata a mai multor furnizori"
+  ],
+  "servicesTitle": "Ce facem",
+  "services": [
+    {
+      "title": "Analiza de conformitate NIS2",
+      "paragraphs": [
+        "Evaluam pozitia institutiei fata de cerintele OUG 155/2024. Identificam ce exista, ce lipseste si ce trebuie facut prioritar."
+      ],
+      "deliverable": "Livrabil: Raport de conformitate NIS2 cu gap-uri identificate, riscuri prioritizate si plan de actiune cu estimari de efort si timp."
+    },
+    {
+      "title": "Analiza de maturitate a securitatii",
+      "paragraphs": [
+        "Evaluam cat de bine functioneaza controalele existente in realitate, nu doar daca exista pe hartie."
+      ],
+      "deliverable": "Livrabil: Raport de maturitate cu scoruri pe domenii, comparatie cu nivelul minim necesar si recomandari concrete."
+    },
+    {
+      "title": "Documentatie si politici de securitate",
+      "paragraphs": [
+        "Elaboram documentatia ceruta de NIS2 si ISO 27001: politici de securitate, proceduri operationale, registre de riscuri, planuri de continuitate, proceduri de gestionare a incidentelor."
+      ],
+      "deliverable": "Livrabil: Set complet de documente conforme, personalizate pe structura si procesele institutiei."
+    },
+    {
+      "title": "Coordonare implementare masuri tehnice",
+      "paragraphs": [
+        "Elaboram specificatiile tehnice si coordonam implementarea cu echipa IT a institutiei sau cu furnizorul de servicii IT: segmentare retea, control acces, criptare, backup, monitorizare, gestionarea vulnerabilitatilor. Verificam ca implementarea corespunde cerintelor."
+      ],
+      "deliverable": "Livrabil: Specificatii tehnice, verificare implementare si documentarea conformitatii pe fiecare control aplicabil."
+    },
+    {
+      "title": "Testare de securitate",
+      "paragraphs": [
+        "Evaluam rezistenta infrastructurii prin teste de penetrare, scanari de vulnerabilitati si simulari de phishing."
+      ],
+      "deliverable": "Livrabil: Raport tehnic cu vulnerabilitati identificate, nivel de risc si plan de remediere prioritizat."
+    },
+    {
+      "title": "Campanii de constientizare si instruire",
+      "paragraphs": [
+        "Sesiuni de formare pentru conducere (obligatii legale, raspundere, riscuri) si pentru personal (recunoasterea atacurilor, proceduri de raportare). Simulari de phishing pentru evaluarea reactiei reale a angajatilor."
+      ],
+      "deliverable": "Livrabil: Sesiuni sustinute, materiale de curs, evidenta participarii, rezultate simulari, evaluari post-training."
+    },
+    {
+      "title": "Audit intern si pregatire certificare ISO 27001",
+      "paragraphs": [
+        "Efectuam auditul intern, identificam neconformitatile si coordonam remedierea lor. Pregatim institutia complet pentru auditul de certificare, care este efectuat de un organism acreditat."
+      ],
+      "deliverable": "Livrabil: Raport audit intern, plan de remediere, institutie pregatita pentru auditul de certificare."
+    },
+    {
+      "title": "Inregistrare si raportari DNSC",
+      "paragraphs": [
+        "Efectuam inregistrarea la DNSC si documentam procedura de raportare incidente conform termenelor legale (24h / 72h / 30 zile)."
+      ],
+      "deliverable": "Livrabil: Inregistrare finalizata, procedura de raportare documentata si testata."
+    },
+    {
+      "title": "Mentenanta si conformitate continua",
+      "paragraphs": [
+        "Conformitatea NIS2 nu este un proiect cu termen de finalizare. Cerintele evolueaza, infrastructura se schimba, amenintarile se diversifica. Asiguram:",
+        "Actualizarea documentatiei la schimbarile legislative si organizatorice",
+        "Pregatirea auditurilor de supraveghere ISO 27001",
+        "Revizuirea periodica a riscurilor",
+        "Scanari periodice de vulnerabilitati",
+        "Campanii recurente de constientizare",
+        "Asistenta la incidente si raportari DNSC",
+        "Coordonarea continua cu echipa IT pentru remedierea vulnerabilitatilor"
+      ],
+      "deliverable": "Livrabil: Conformitate mentinuta pe toata durata contractului."
+    }
+  ],
+  "methodology": [
+    "Cum se desfasoara",
+    "Faza 1 - Evaluare",
+    "Echipa de securitate analizeaza infrastructura, documentatia si procesele existente. Rezultat: raport de conformitate NIS2, analiza de maturitate si plan de actiune prioritizat.",
+    "Faza 2 - Documentare si coordonare implementare",
+    "Elaboram documentatia si specificatiile tehnice. Coordonam implementarea masurilor cu echipa IT a institutiei. Verificam conformitatea fiecarei masuri implementate.",
+    "Faza 3 - Testare si audit intern",
+    "Teste de penetrare, scanari de vulnerabilitati, audit intern, remedierea neconformitatilor identificate.",
+    "Faza 4 - Pregatire certificare",
+    "Simulare audit, remedierea neconformitatilor ramase. Institutia intra in auditul de certificare ISO 27001 pregatita.",
+    "Faza 5 - Mentenanta continua",
+    "Audituri de supraveghere, actualizarea documentatiei, scanari periodice, campanii de constientizare, asistenta la incidente si raportari DNSC.",
+    "Durata fazelor 1-4 depinde de dimensiunea institutiei si de nivelul de maturitate initial. Faza 5 continua pe toata durata contractului."
+  ],
+  "why": [
+    "De ce sa lucrati cu noi",
+    "Cunoastem spitalele. 15 ani de lucru cu institutii medicale din Romania. Stim cum functioneaza un spital, ce aplicatii foloseste, cu ce provocari se confrunta.",
+    "Securitate profesionala, nu improvizata. Serviciile de securitate sunt prestate de specialisti cu certificari si experienta in conformitate NIS2, audit ISO 27001 si securitate tehnica pentru infrastructuri critice. Nu sunt dezvoltatori de software care fac securitate in timpul liber.",
+    "Un singur contract, un singur interlocutor. Nu coordonati separat firma de consultanta, firma de testare si firma de audit. SXS este punctul unic de contact.",
+    "Am trecut prin acelasi proces. SXS detine certificarea ISO/IEC 27001:2022 (certificat CERTIND nr. 51246/158-40-SI). Stim ce verifica un auditor pentru ca am trecut noi insine prin certificare.",
+    "Achizitie prin SEAP. Disponibil pentru achizitie publica prin Sistemul Electronic de Achizitii Publice."
+  ],
+  "faqTitle": "Intrebari frecvente",
+  "faq": [
+    {
+      "q": "Cat dureaza pana la conformitate?",
+      "a": "Depinde de dimensiunea institutiei si de nivelul curent de maturitate. Evaluarea initiala dureaza 2-3 saptamani. Documentarea si implementarea masurilor prioritare pot dura cateva luni. Conformitatea insa nu este un proiect care se termina - necesita mentenanta continua."
+    },
+    {
+      "q": "Ne certificati voi ISO 27001?",
+      "a": "Nu. Certificarea o emite un organism acreditat (CERTIND, TUV, Bureau Veritas). Noi pregatim institutia complet pentru audit: evaluare, documentatie, coordonare implementare, audit intern, remediere neconformitati."
+    },
+    {
+      "q": "Trebuie sa folosim aplicatiile SXS?",
+      "a": "Nu. Serviciul de securitate este complet independent de aplicatiile noastre. Lucram cu orice infrastructura IT existenta."
+    },
+    {
+      "q": "Daca avem deja ISO 27001, mai trebuie ceva pentru NIS2?",
+      "a": "Da. ISO 27001 acopera o parte din cerinte, dar NIS2 impune obligatii suplimentare: inregistrare DNSC, raportare incidente in termene fixe, audit reglementat. Evaluam exact ce va mai lipseste."
+    },
+    {
+      "q": "Cine implementeaza solutiile tehnice?",
+      "a": "Echipa IT a institutiei sau furnizorul de servicii IT existent. Echipa de securitate elaboreaza specificatiile, coordoneaza implementarea si verifica conformitatea. Nu vindem si nu impunem echipamente sau software."
+    },
+    {
+      "q": "Avem nevoie de personal IT dedicat pentru securitate?",
+      "a": "Nu obligatoriu. Lucram cu echipa IT existenta. Pentru institutiile fara resurse IT suficiente, asiguram suport continuu prin contractul de mentenanta."
+    },
+    {
+      "q": "Ce risca institutia daca nu se conformeaza?",
+      "a": "Sanctiuni administrative conform OUG 155/2024, raspundere directa a conducerii si expunere la incidente cu impact asupra pacientilor si operatiunilor."
+    }
+  ],
+  "contactTitle": "Solicitati o analiza de conformitate",
+  "footer": [
+    "Secure eXpert Software SRL",
+    "CUI RO24167740 | Reg. Com. J2008011909408",
+    "Certificat ISO/IEC 27001:2022, nr. 51246/158-40-SI (CERTIND SA)",
+    "Intrarea Platon nr. 5, etaj 1, Sector 3, Bucuresti",
+    "office@sxs.ro | 0724 801 020"
+  ]
+}

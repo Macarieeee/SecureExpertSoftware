@@ -140,7 +140,7 @@ export default function Home() {
           </p>
 
           <div className="mt-12 grid gap-px overflow-hidden rounded-xl border border-line bg-line lg:grid-cols-3">
-            {[...priority, { slug: 'prosecure', name: 'PROSECURE', area: 'Securitate cibernetică', tagline: 'Pregătire pentru ISO 27001, ISO 9001 și NIS2, de la analiză până la auditul de certificare.', href: '/securitate-cibernetica' }].map((p) => (
+            {[...priority, { slug: 'prosecure', name: 'PROSECURE', area: 'Securitate cibernetica', tagline: 'Conformitate NIS2 si pregatire ISO 27001 pentru institutii medicale - evaluare, documentatie, testare, audit intern si mentenanta continua.', href: '/securitate-cibernetica' }].map((p) => (
               <Link
                 key={p.slug}
                 to={p.href || `/solutii/${p.slug}`}
